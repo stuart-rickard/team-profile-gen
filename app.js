@@ -1,7 +1,14 @@
 const Team = require( './lib/Team' );
 
-new Team().introMessage
-.then.getTeamMembers
-.then.createHTML
-.then.saveHTML
+introMessage() {
+    const intro = `Welcome to the Team Profile Generator!
+Let's get started!`;
+    console.log(intro);        
+}
+
+introMessage();
+new Team().getTeamMembers
+.then
+    createHTML
+    saveHTML
 .then.openHTML
