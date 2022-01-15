@@ -1,6 +1,6 @@
-// const Team = require( './lib/Team' );
-const { test } = require('picomatch');
 const { createHTML, saveHTML } = require( './lib/html-handler' )
+const Team = require( './lib/Team' );
+const { askUserToSelect } = require( './lib/obtain-user-input' );
 
 introMessage = () => {
     const intro = `Welcome to the Team Profile Generator!
@@ -46,13 +46,50 @@ testData = [
     },                                        
 ]
 
-introMessage();
-// const team = new Team()
-//     team.getTeamMembers()
-//     .then(function(){
-        // createHTML(testData);
-    saveHTML(createHTML(testData))
-    .then(writeFileResponse => {
-        console.log(writeFileResponse.message);
-        });
+const createReport = async function() {
+    introMessage();
+    const team = new Team;
+    await team.populateStaff();
+        
+        console.log( 'team is:' );
+        console.log( team );
+        console.log( 'team.staff is:');
+        console.log( team.staff );
+        console.log( team.staff[0].name )
+
+    saveHTML( createHTML( team.staff ) ) 
+        .then( writeFileResponse => {
+            console.log( writeFileResponse.message );
+        })
+        
+}
+
+// makeReport = async function() {
+//     const team = new Team;
+//     team.populateStaff();
+//     consoleLogging = function() {
+
+//         console.log( 'team is:' );
+//         console.log( team );
+//         console.log( 'team.staff is:');
+//         console.log( team.staff );
+//     }
+//     await consoleLogging();
+
+// }
+
+// makeReport();
+// const populateStaff = async function() {
+//     const populateStaff =  function() {
+
+//     }
+// }
+// await consoleLogging();
+
+createReport()
+// populateStaff()
+//        .then( saveHTML( createHTML( testData ) ) )
+//     .then( writeFileResponse => {
+//         console.log( writeFileResponse.message );
+//     })
 //.then.openHTML
