@@ -1,6 +1,10 @@
 const { createHTML, saveHTML } = require( './lib/html-handler' )
+const { askUserToConfirm } = require( './lib/obtain-user-input' );
+const { openChrome } = require( './lib/open-chrome' )
+
 const Team = require( './lib/Team' );
-const { askUserToSelect } = require( './lib/obtain-user-input' );
+
+const filename = 'team-profile.html';
 
 introMessage = () => {
     const intro = `Welcome to the Team Profile Generator!
@@ -8,88 +12,18 @@ Let's get started!`;
     console.log(intro);        
 }
 
-testData = [
-    {
-        name: "from app",
-        employeeID: "456",
-        role: "Manager",
-        officeNumber: "789",
-        email: 'sam@g.com'
-    },
-    {
-        name: "tim",
-        employeeID: '456',
-        role: "Engineer",
-        githubUserName: "tim-the-user",
-        email: 'tim@g.com'
-    },
-    {
-        name: "zelda",
-        employeeID: "456",
-        role: "Intern",
-        school: 'columbia',
-        email: 'ze@g.com'
-    },
-    {
-        name: "ralph",
-        employeeID: '456',
-        role: "Engineer",
-        githubUserName: 'ralph',
-        email: 'ra@g.com'
-    },
-    {
-        name: "toni",
-        employeeID: '456',
-        role: "Intern",
-        school: 'berkeley',
-        email: 'sam@g.com'
-    },                                        
-]
-
 const createReport = async function() {
     introMessage();
     const team = new Team;
     await team.populateStaff();
-        
-        console.log( 'team is:' );
-        console.log( team );
-        console.log( 'team.staff is:');
-        console.log( team.staff );
-        console.log( team.staff[0].name )
-
-    saveHTML( createHTML( team.staff ) ) 
+    await saveHTML( createHTML( team.staff ), filename ) 
         .then( writeFileResponse => {
             console.log( writeFileResponse.message );
         })
-        
+    let proceed = await askUserToConfirm( 'Open Team Profile in Chrome?' );
+    if (proceed) {
+        openChrome(  __dirname, filename );
+    }
 }
 
-// makeReport = async function() {
-//     const team = new Team;
-//     team.populateStaff();
-//     consoleLogging = function() {
-
-//         console.log( 'team is:' );
-//         console.log( team );
-//         console.log( 'team.staff is:');
-//         console.log( team.staff );
-//     }
-//     await consoleLogging();
-
-// }
-
-// makeReport();
-// const populateStaff = async function() {
-//     const populateStaff =  function() {
-
-//     }
-// }
-// await consoleLogging();
-
 createReport()
-// populateStaff()
-//        .then( saveHTML( createHTML( testData ) ) )
-//     .then( writeFileResponse => {
-//         console.log( writeFileResponse.message );
-//     })
-//.then.openHTML
