@@ -8,7 +8,8 @@ const filename = 'team-profile.html';
 
 introMessage = () => {
     const intro = `Welcome to the Team Profile Generator!
-Let's get started!`;
+----Use ^C at any time to quit.
+----Let's get started!`;
     console.log(intro);        
 }
 
