@@ -27,7 +27,7 @@ A video demonstrating use of the app can be found [here](https://drive.google.co
 The steps are fairly self-explanatory in the command line instructions, but are listed here:
 1. Enter the team's manager details: name, employee ID, email address and "office number".
 2. Enter other staff, if any, details: name, employee ED, and email address as with the manager, but rather than office number, the challenge project states that other staff have roles of either Engineer (who have GitHub logins) or Interns (who have schools).
-3. Once all staff are entered, the `html` file is generated.
+3. Once all staff are entered, the `html` file is generated in the directory from which the app is run.
 4. The user may then choose to have the team profile opened in a new tab in a Chrome browser.
     
 ## License
