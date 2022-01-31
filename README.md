@@ -4,7 +4,7 @@ This is a challenge project for the UC Berkeley Extension Full-Stack Developer B
 
 This project uses `javascript` to create classes for `Team` and for `Staff`.  The app provides for the user to enter staff details through methods that are inherited from `Staff`.  Objects derived from `Staff` differ from each other: an example of polymorphism.  
 
-This projects uses the `inquirer` package from `npm` for the command line interface, but the top-level `app.js` file and the `Team` and `Staff` methods do not call `inquirer` directly; rather, those calls are CLI-agnostic and `inquirer` is sequestered in the module `obtain-user-input.js`, which was written for this project.  Of note, this project uses the Bootstrap library for styling, and `Async`, `await`, and `.then` coding is used with Promise objects to address the asynchronous nature of entry of inputs by the user.
+This project uses the `inquirer` package from `npm` for the command line interface, but the top-level `app.js` file and the `Team` and `Staff` methods do not call `inquirer` directly; rather, those calls are CLI-agnostic and `inquirer` is sequestered in the module `obtain-user-input.js`, which was written for this project.  Of note, this project uses the Bootstrap library for styling, and `Async`, `await`, and `.then` coding is used with Promise objects to address the asynchronous nature of entry of inputs by the user.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
